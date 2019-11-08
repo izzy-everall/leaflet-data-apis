@@ -66,7 +66,13 @@
     // Esri streets basemapLayer (dependency: Esri leaflet plugin)
     var Esri_Streets =   L.esri.basemapLayer('Streets');
     controlLayers.addBaseLayer(Esri_Streets, 'Street basemap (Esri)');
-
+    
+    // create the tile layer with correct attribution
+    var openstreetmap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      });
+    controlLayers.addBaseLayer(openstreetmap, 'Open Street Map tiling');
+    
     /* OVERLAYS */
 
     // Load open data from Socrata endpoint in GeoJSON format
